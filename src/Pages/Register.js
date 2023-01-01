@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import {Box, Button, Card, CardContent, Container, Link, TextField, Typography} from '@mui/material'
+import {Box, Button, Card, CardContent, Container, TextField, Typography} from '@mui/material'
 import { useApi } from '../Hooks/useAPI'
 import Quote from '../Assets/icons8-quote-left-96.png'
 import { useWindowSize } from '../Hooks/useWindowSize'
 import { useNavigate } from 'react-router'
+import { Link } from 'react-router-dom'
 
 
 const Register = () => {
@@ -106,7 +107,7 @@ const Register = () => {
               <TextField required type='password' onChange={changeHandler} id="outlined-basic" color={isPasswordValid?'primary':'error'} name='password' label="Password" variant="outlined" />
               <TextField required type='password' onChange={changeHandler} id="outlined-basic" color={isPasswordValid?'primary':'error'} name='konfirmasi_password' label="Konfirmasi Password" variant="outlined" />
               <Button type='submit' color='primary' variant='contained'>Sign Up</Button>
-              <Typography variant='caption' component='div'>Already Have account? <Link href='/login'>Login</Link> here</Typography>
+              {width<1200 && <Typography variant='caption' component='div'>Already Have account? <Link href='/login'>Login</Link> here</Typography>}
             </Box>
           </form>
 
@@ -139,7 +140,7 @@ const Register = () => {
         <Typography variant='h6' component='div' sx={{
           position:'absolute',
           bottom:'0'
-        }} >Already Have account? <Link href='/login'>Login</Link> here</Typography>
+        }} >Already Have account? <Link to='/login'>Login</Link> here</Typography>
         </Box>}
         
       </Card>)}

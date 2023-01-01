@@ -1,7 +1,7 @@
-import { Box, Button, Card, CardContent, Container, Link, TextField, Typography } from '@mui/material'
+import { Box, Button, Card, CardContent, Container, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router'
-import { useLoginData } from '../Hooks/useLoginData'
+import { Link } from 'react-router-dom'
 
 const Login = () => {
   document.title='Login'
@@ -55,7 +55,7 @@ const Login = () => {
               <Button type='submit' variant='contained'>Login</Button>
               </Box>
             </form>
-            <Typography>Belum punya akun? Buat <Link href='/register'>Disini</Link></Typography>
+            <Typography>Belum punya akun? Buat <Link to='/register'>Disini</Link></Typography>
           </CardContent>
         </Card>
       </Container>
