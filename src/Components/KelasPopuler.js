@@ -10,7 +10,6 @@ const KelasPopuler = ({c}) => {
       <Typography sx={{marginTop:14}} variant='h6' component='h6'>{c.module}</Typography>
       <Typography sx={{marginTop:5}} variant='h6' component='h6'>{c.harga}</Typography>
       <Button variant='outlined' >Detail Kelas</Button>
-      
     </Box>
   )
 }

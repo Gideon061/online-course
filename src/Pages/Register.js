@@ -107,7 +107,7 @@ const Register = () => {
               <TextField required type='password' onChange={changeHandler} id="outlined-basic" color={isPasswordValid?'primary':'error'} name='password' label="Password" variant="outlined" />
               <TextField required type='password' onChange={changeHandler} id="outlined-basic" color={isPasswordValid?'primary':'error'} name='konfirmasi_password' label="Konfirmasi Password" variant="outlined" />
               <Button type='submit' color='primary' variant='contained'>Sign Up</Button>
-              {width<1200 && <Typography variant='caption' component='div'>Already Have account? <Link href='/login'>Login</Link> here</Typography>}
+              {width<1200 && <Typography variant='caption' component='div'>Already Have account? <Link className='link-redirect' to='/login'>Login here</Link></Typography>}
             </Box>
           </form>
 
@@ -140,7 +140,7 @@ const Register = () => {
         <Typography variant='h6' component='div' sx={{
           position:'absolute',
           bottom:'0'
-        }} >Already Have account? <Link to='/login'>Login</Link> here</Typography>
+        }} >Already Have account? <Link to='/login' className='link-redirect'>Login here</Link></Typography>
         </Box>}
         
       </Card>)}

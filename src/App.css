@@ -7,14 +7,9 @@
 *::-webkit-scrollbar {
   display: none;
 }
-
 .bar {
   overflow-y: scroll;
 }
-
-/* .progress{
-  border: 1px solid ;
-} */
 
 .register-img-handler {
   display: flex;

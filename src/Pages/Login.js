@@ -55,7 +55,7 @@ const Login = () => {
               <Button type='submit' variant='contained'>Login</Button>
               </Box>
             </form>
-            <Typography>Belum punya akun? Buat <Link to='/register'>Disini</Link></Typography>
+            <Typography>Belum punya akun?<Link to='/register' className='link-redirect'>Buat Disini</Link></Typography>
           </CardContent>
         </Card>
       </Container>
