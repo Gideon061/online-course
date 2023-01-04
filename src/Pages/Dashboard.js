@@ -10,10 +10,11 @@ import { useWindowSize } from '../Hooks/useWindowSize';
 import ResponsiveBar from '../Components/ResponsiveBar';
 import { useLoginData } from '../Hooks/useLoginData';
 import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
 
 
 
-const Dashboard = ({populerClass}) => {
+const Dashboard = ({populerClass,choosenClass}) => {
   document.title='Dashboard'
 
   const navigate = useNavigate()
@@ -60,31 +61,6 @@ const Dashboard = ({populerClass}) => {
     ]
   };
 
-
-
-  const [classList,setClassList] = useState([
-    {
-    judul:"Pemrograman Web",
-    progress:95
-  },
-  {
-    judul:'Pemrograman Android',
-    progress:75
-  },
-  {
-    judul:'Bahasa Inggris',
-    progress:43
-  },
-  {
-    judul:'Artificial Intelligence',
-    progress:10
-  },
-  {
-    judul:'Pemrograman Dasar',
-    progress:100
-  }
-])
-
   return (
     <Box sx={{backgroundColor:'#1f1f1f',width:'100vw'}}>
       {isLogin?(<Stack direction='horizontal' spacing={2}>
@@ -98,25 +74,28 @@ const Dashboard = ({populerClass}) => {
           lg:20
         } }}>
           <ResponsiveBar />
-          <Typography sx={{marginBottom:4,color:'primary.contrastText'}} component='h6' variant='h4'>Hello {isLogin.nama} ,Selamat datang! </Typography>
+          <Typography sx={{marginBottom:4,color:'primary.contrastText'}} component='h6' variant='h4'>Hello {isLogin.nama} , Welcome! </Typography>
           <Card sx={{paddingTop:3,paddingBottom:4}}>
             <CardContent >
-              <Typography component='h5' variant='h5'>Tingkatkan kemampuan mu untuk meraih karir impian mu.</Typography>
-              <Typography component='p' variant='subtitle1'>Kuasai skill digital dan bangun portfolio mu dari rumah.</Typography>
+              <Typography component='h5' variant='h5'>Improve your ability to achieve your dream career.</Typography>
+              <Typography component='p' variant='subtitle1'>Master digital skills and build your portfolio from home.</Typography>
             </CardContent>
           </Card>
           {width<1100&&<Box sx={{backgroundColor:'primary.main', width:'100%',marginTop:5,p:2,borderRadius:'10px'}}>
-            <Typography variant='h6' component='div'>Punya kode voucher?</Typography>
-            <Button variant='contained'>Pakai disini</Button>
+            <Typography variant='h6' component='div'>Have a voucher code?</Typography>
+            <Button variant='contained'>Redeem Here!</Button>
           </Box>}
-          <Typography sx={{marginTop:2,marginBottom:2,color:'primary.contrastText'}} component='h6' variant='h5'>Progress Kelas</Typography>
+          <Typography sx={{marginTop:2,marginBottom:2,color:'primary.contrastText'}} component='h6' variant='h5'>Class Progress</Typography>
           <Box>
             <Stack spacing={2}>
-              {classList.map((item,y)=>{
+              {choosenClass.length>1 ? choosenClass.map((item,y)=>{
                 return(
-                  <Progress key={200+y} classList={item} />
+                  <Progress key={200+y} choosenClass={item} />
                 )
-              })}
+              }):(<Box sx={{border:'1px solid #FFCC00', p:3 , display:'flex',justifyContent:'center' ,flexDirection:'column', gap:4}}>
+                <Typography component='h5' variant='h5' sx={{color:'#fff',textAlign:'center'}}>Currently no class Here!</Typography>
+                <Button variant='contained'><Link to='/dashboard/kelas'>Add now</Link></Button>
+                </Box>)}
             </Stack>
           </Box>
           <Typography variant='h5' component='div' sx={{marginTop:4, marginBottom:4, color:'primary.contrastText'}}>Kelas Terpopuler</Typography>
@@ -130,8 +109,8 @@ const Dashboard = ({populerClass}) => {
         </Box>
         {width>1200 && <Box sx={{width:'800px',paddingTop:19}}>
           <Box sx={{backgroundColor:'primary.main', width:'250px',p:2,borderRadius:'10px' ,marginLeft:'20px'}}>
-            <Typography variant='h6' component='div'>Punya kode voucher?</Typography>
-            <Button variant='contained'>Pakai disini</Button>
+            <Typography variant='h6' component='div'>Have Voucher Code?</Typography>
+            <Button variant='contained'>Redeem here</Button>
           </Box>
         </Box>}
       </Stack>):(

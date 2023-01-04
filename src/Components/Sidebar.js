@@ -31,10 +31,10 @@ const Sidebar = () => {
       <img width='100px' src={Logo} alt='logo' />
       <Stack spacing={2}>
         <Box sx={{p:0.75, borderRadius:'10px'}}>
-          <Typography component='h1' variant='h6'><Link to='/dashboard' sx={{color:'#000'}}>Beranda</Link></Typography>
+          <Typography component='h1' variant='h6'><Link to='/dashboard' sx={{color:'#000'}}>Home</Link></Typography>
         </Box>
         <Box sx={{p:0.75, borderRadius:'10px'}}>
-          <Typography component='h1' variant='h6'><Link to='/dashboard/kelas' sx={{color:'#000'}}>Kelas</Link></Typography>
+          <Typography component='h1' variant='h6'><Link to='/dashboard/kelas' sx={{color:'#000'}}>Class</Link></Typography>
         </Box>
         <Box sx={{p:0.75, borderRadius:'10px'}}>
           <Typography component='h1' variant='h6'><Link to='/dashboard/project' sx={{color:'#000'}}>Project</Link></Typography>

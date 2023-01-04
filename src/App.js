@@ -13,9 +13,13 @@ import AdminProject from './Pages/Admin/AdminProject';
 
 function App() {
 
+
+  const [choosenClass,setChoosenClass] = useState([])
+
+
   const [populerClass,setPopulerClass] = useState([
     {
-    judul:'Pemrograman Dasar',
+    judul:'Programming Dasar',
     module:'12 Video & 3 Zoom(Webinar)',
     harga:'Rp. 750,000',
     anggota:875
@@ -72,20 +76,20 @@ function App() {
 
   const [allClass,setAllClass] = useState([
     {
-      label:'Pemrograman Dasar',
+      label:'Basic Programming',
       module:'12 Video & 3 Zoom(Webinar)',
       harga:'Rp. 750,000'
     },{
-      label:'Pemrograman Web',
+      label:'Web Programming',
       module:'10 Video & 3 Zoom(Webinar)',
       harga:'Rp. 700,000'
     },
     {
-      label:'Pemrograman Android',
+      label:'Android Programming',
       module: '11 Video & 4 Zoom (Webinar)',
       harga:'Rp. 750,000'
     },{
-      label:'Bahasa Inggris',
+      label:'English',
       module:'8 video & 2 Zoom (Webinar)',
       harga:'Rp. 550,000'
     },
@@ -106,7 +110,7 @@ function App() {
       harga:'Rp. 600,000'
     },
     {
-      label:'Video Editor',
+      label:'Video Editing',
       module:'11 Video & 4 Zoom(Webinar)',
       harga:'Rp. 620,000'
     },
@@ -116,17 +120,17 @@ function App() {
       harga:'Rp. 600,000'
     },
     {
-      label:'Pemrograman Android(Flutter)',
+      label:'Programming Android(Flutter)',
       module:'14 Video & 3 Zoom(Webinar)',
       harga:'Rp. 780,000'
     },
     {
-      label:'Pemrograman iOS(Swift)',
+      label:'Programming iOS(Swift)',
       module:'10 Video & 3 Zoom(Webinar)',
       harga:'Rp. 680,000'
     },
     {
-      label:'Pemrograman Python',
+      label:'Programming Python',
       module:'7 Video & 2 Zoom(Webinar)',
       harga:'Rp. 580,000'
     },
@@ -145,15 +149,15 @@ function App() {
         <Routes>
           <Route
           path="*"
-          element={<Register to="/register" replace />} //this is a way to redirect
+          element={<Register to="/register" replace />}
       />
           <Route path='/register' element={<Register />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/dashboard' element={<Dashboard populerClass={populerClass} />} />
+          <Route path='/dashboard' element={<Dashboard choosenClass={choosenClass} populerClass={populerClass} />} />
           <Route path='/admin/dashboard' element={<AdminDashboard populerClass={populerClass} />} />
           <Route path='/admin/dashboard/kelas' element={<AdminKelas allClass={allClass} />} />
           <Route path='/admin/dashboard/project' element={<AdminProject allClass={allClass} mataPelajaran={mataPelajaran} setMataPelajaran={setMataPelajaran} />} />
-          <Route path='/dashboard/kelas' element={<Kelas allClass ={allClass} />} />
+          <Route path='/dashboard/kelas' element={<Kelas choosenClass={choosenClass} setChoosenClass={setChoosenClass} allClass ={allClass} />} />
           <Route 
           path='/dashboard/project' 
           element={

@@ -5,15 +5,21 @@ import ListClass from '../Components/ListClass'
 import { useWindowSize } from '../Hooks/useWindowSize'
 import ResponsiveBar from '../Components/ResponsiveBar';
 import { useLoginData } from '../Hooks/useLoginData'
-import { useNavigate } from 'react-router'
 import NotLogin from '../Components/NotLogin'
 
 
-const Kelas = ({allClass}) => {
+const Kelas = ({allClass,setChoosenClass,choosenClass}) => {
   document.title='Kelas'
-
   const isLogin = useLoginData()
   const {width} = useWindowSize()
+
+  const addClass = (value) =>{
+    if(choosenClass.includes(value)){
+      return
+    }
+      return setChoosenClass(prevClass => [...prevClass,value])
+    
+  }
 
   return (
     <Box sx={{backgroundColor:'#1f1f1f'}}>
@@ -30,11 +36,11 @@ const Kelas = ({allClass}) => {
           md:5,
           lg:20
         },width:'100%' ,color:'primary.contrastText'}}>
-          <Typography component='h6' variant='h5'>List Kelas</Typography>
+          <Typography component='h6' variant='h5'>Class List</Typography>
           <Box>
             {allClass.map((item,i)=>{
               return(
-                <ListClass key={i+45} classes = {item} />
+                <ListClass addClass={addClass} key={i+45} classes = {item} />
               )
             })}
           </Box>

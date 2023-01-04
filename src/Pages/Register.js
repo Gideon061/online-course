@@ -98,10 +98,10 @@ const Register = () => {
         }
       }}>
         <CardContent sx={{width:'100%'}}>
-          <Typography variant='h5' component='div'>Bergabung dan tingkatkan kemampuan mu untuk meraih karir impian mu.</Typography>
+          <Typography variant='h5' component='div'>Join and improve your ability to achieve your dream career.</Typography>
           <form onSubmit={handleSubmit}>
             <Box sx={{display:'flex', flexDirection:'column', gap:2, mt:4}}>
-              <TextField required type='text' onChange={changeHandler} id="outlined-basic" name='nama' label="Nama" variant="outlined" />
+              <TextField required type='text' onChange={changeHandler} id="outlined-basic" name='nama' label="Name" variant="outlined" />
               <TextField required type='email' onChange={changeHandler} color={isEmailValid?'primary':'error'} id="outlined-basic" name= 'email' label="Email" variant="outlined" />
               <TextField required type='email' onChange={changeHandler} color={isEmailValid?'primary':'error'} id="outlined-basic" name='konfirmasi_email' label="Konfirmasi Email" variant="outlined" />
               <TextField required type='password' onChange={changeHandler} id="outlined-basic" color={isPasswordValid?'primary':'error'} name='password' label="Password" variant="outlined" />

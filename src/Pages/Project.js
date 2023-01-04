@@ -30,7 +30,7 @@ const Project = ({allClass,setMataPelajaran,mataPelajaran}) => {
         },color:'#fff'}}>
           <ResponsiveBar />
 
-          <Typography component='h6' variant='h5'>Pilih Mata pelajaran:</Typography>
+          <Typography component='h6' variant='h5'>Subject:</Typography>
           <form >
           <Autocomplete
             disablePortal
